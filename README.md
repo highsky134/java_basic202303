@@ -18,6 +18,14 @@
 - 파일 -> 설정 -> 버전관리
 - 터미널에서 git rm -r --cached 입력 하면 add 파일 제어 가능
 
-### 유용한 단축기
+### 유용한 단축키
+-필수
 Alt + 1 : 탭,창전환 용
-Ctrl + Alt + v : 변수 자동생성(필수)
+Ctrl + Alt + v : 변수 자동생성
+Ctrl + Alt + n : 변수 인라인 전환 
+Ctrl + Alt + t : 둘러싸기(for, while)
+Alt + Enter : 인텔리제이한테 물어보기~
+
+-유용
+shift 두번 : 통합검색
+shift + f6 : 이름 통합 변경 
