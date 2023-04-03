@@ -14,7 +14,7 @@ public class MemberView {
     }
 
     /**
-     *  초기 메인 화면을 출력
+     * 초기 메인 화면을 출력
      */
     void mainView() {
         System.out.println("\n##### 회원 관리 시스템 #####");
@@ -22,13 +22,13 @@ public class MemberView {
         System.out.println("* 2. 개별회원 정보 조회하기");
         System.out.println("* 3. 전체회원 정보 조회하기");
         System.out.println("* 4. 회원 정보 수정하기");
-        System.out.println("* 5. 회원 정보 삭제하기");
+        if (!mr.isEmpty()) System.out.println("* 5. 회원 정보 삭제하기");
         System.out.println("* 6. 프로그램 끝내기");
         System.out.println("============================");
     }
 
     /**
-     *  프로그램 화면 흐름을 제어하는 기능
+     * 프로그램 화면 흐름을 제어하는 기능
      */
     void viewProcess() {
         while (true) {
@@ -47,8 +47,11 @@ public class MemberView {
                     stop();
                     break;
                 case "4":
+                    changePasswordViewProcess();
                     break;
                 case "5":
+                    if (mr.isEmpty()) continue;
+                    removeMemberViewProcess();
                     break;
                 case "6":
                     String answer = input("# 정말로 종료합니까? [y/n] : ");
@@ -59,6 +62,8 @@ public class MemberView {
                         continue;
                     }
                     break;
+                case "7": // 삭제된 회원 복구 기능
+                    break;
                 default:
                     System.out.println("\n# 메뉴 번호를 다시 입력하세요");
             }
@@ -66,10 +71,55 @@ public class MemberView {
         }
     }
 
+    void removeMemberViewProcess() {
+        String email = input("# 삭제할 회원의 이메일 ");
+
+        // 존재하는지 확인 후 삭제 처리 위임
+        Member foundMember = mr.findByEmail(email);
+
+        if (foundMember != null) {
+            String lastCheck = input(String.format("# %s님의 정보를 정말 삭제하시겠습니까? (y/n)", foundMember.memberName));
+
+            if (lastCheck.toLowerCase().charAt(0) == 'y'){
+                mr.removeMember(email);
+            } else {
+                System.out.println("# 삭제를 취소합니다.");
+            }
+        } else {
+            System.out.println("# 존재하지 않는 회원입니다.");
+        }
+        // -> 한번 더 y/n으로 삭제 여부 묻기
+    }
+
+    // 비밀번호 변경 입출력 처리
+    void changePasswordViewProcess() {
+        String email = input("# 수정할 대상의 이메일: ");
+
+        // 대상 탐색
+        Member foundMember = mr.findByEmail(email);
+
+        if (foundMember != null) {
+            // 수정 진행
+            System.out.printf("%s님의 비밀번호를 변경합니다\n", foundMember.memberName);
+            // 기존 비밀번호와 같으면 변경 취소
+            String newPassword = input("# 새로운 비밀번호: ");
+            if (foundMember.password.equals(newPassword)) {
+                return;
+            }
+            mr.changePassword(email, newPassword);
+            System.out.println("\n# 비밀번호가 성공적으로 수정되었습니다.");
+
+        } else {
+            System.out.println("\n# 조회 결과가 없습니다.");
+        }
+    }
+
+
     String input(String message) {
         System.out.print(message);
         return sc.nextLine();
     }
+
 
     // 엔터를 누르기 전까지 멈추는 기능
     void stop() {
@@ -83,7 +133,7 @@ public class MemberView {
         String email;
         while (true) {
             email = input("# 이메일: ");
-            if(!mr.isDuplicateEmail(email)) {
+            if (!mr.isDuplicateEmail(email)) {
                 break;
             }
             System.out.println("# 중복된 이메일입니다 ㅋㅋ");
@@ -92,9 +142,10 @@ public class MemberView {
         String password = input("# 패스워드 :");
 
         Gender gender;
-        checkGender: while (true) {
+        checkGender:
+        while (true) {
             String inputGender = input("# 성별[M/F] : ");
-            switch(inputGender.toUpperCase().charAt(0)) {
+            switch (inputGender.toUpperCase().charAt(0)) {
                 case 'M':
                     gender = Gender.MALE;
                     break checkGender;
@@ -137,13 +188,6 @@ public class MemberView {
         stop();
     }
 
-    // 회원 삭제를 위한 입출력 처리
-    void deleteMember() {
-        System.out.println("# 삭제할 회원의 정보를 입력하세요!");
-        String email = input("# 이메일: ");
 
-        // 삭제 할 회원의 정보 email, password를 넘겨 결과
-        // (true, false(아이디 또는 비번 틀렸음)를 받아옴
 
-    }
 }
