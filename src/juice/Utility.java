@@ -16,4 +16,8 @@ public class Utility {
         System.out.println(message);
         return sc.nextLine();
     }
+
+    public static void push() {
+
+    }
 }

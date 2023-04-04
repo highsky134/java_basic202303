@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b32375f-501a-4412-97e4-8f15b0eb517a" name="Changes" comment="회원관리 기능 + 접근제한자, 캡슐화">
+    <list default="true" id="0b32375f-501a-4412-97e4-8f15b0eb517a" name="Changes" comment="상속, static">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/day05/member/MemberView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/day05/member/MemberView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/day07/lotto/Lotto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/day07/lotto/Lotto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/juice/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/juice/Utility.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +63,7 @@
       <recent name="day05.member" />
     </key>
   </component>
-  <component name="RunManager" selected="애플리케이션.day07.static_.Main">
+  <component name="RunManager" selected="애플리케이션.day07.lotto2.Lotto">
     <configuration name="GisaFirst" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="day07.quiz.GisaFirst" />
       <module name="java_basic" />
@@ -78,12 +77,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="day07.inherit.Main" />
+    <configuration name="Lotto" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="day07.lotto.Lotto" />
       <module name="java_basic" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="day07.inherit.*" />
+          <option name="PATTERN" value="day07.lotto.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -91,12 +90,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="day05.member.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="day05.member.Main" />
+    <configuration name="day07.lotto2.Lotto" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="day07.lotto2.Lotto" />
       <module name="java_basic" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="day05.member.*" />
+          <option name="PATTERN" value="day07.lotto2.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -132,11 +131,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="애플리케이션.day07.lotto2.Lotto" />
+        <item itemvalue="애플리케이션.Lotto" />
         <item itemvalue="애플리케이션.day07.static_.Main" />
         <item itemvalue="애플리케이션.GisaFirst" />
         <item itemvalue="애플리케이션.day07.quiz.Main" />
-        <item itemvalue="애플리케이션.day07.Main" />
-        <item itemvalue="애플리케이션.day05.member.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -198,7 +197,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680511860459</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="상속, static">
+      <created>1680589772543</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1680589772543</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -220,7 +226,8 @@
     <MESSAGE value="생성자" />
     <MESSAGE value="회원 관리 기능 개별조회까지" />
     <MESSAGE value="회원관리 기능 + 접근제한자, 캡슐화" />
-    <option name="LAST_COMMIT_MESSAGE" value="회원관리 기능 + 접근제한자, 캡슐화" />
+    <MESSAGE value="상속, static" />
+    <option name="LAST_COMMIT_MESSAGE" value="상속, static" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
