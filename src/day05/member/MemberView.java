@@ -144,8 +144,8 @@ public class MemberView {
         String password = input("# 패스워드 :");
 
         Gender gender;
-        checkGender:
-        while (true) {
+
+        checkGender:while (true) {
             String inputGender = input("# 성별[M/F] : ");
             switch (inputGender.toUpperCase().charAt(0)) {
                 case 'M':

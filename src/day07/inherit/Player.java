@@ -23,4 +23,17 @@ public class Player {
         System.out.println("# level: " + level);
         System.out.println("# hp: " + hp);
     }
+
+    public void damage() {
+        int rd = (int)(Math.random() * 6 + 10);
+        this.hp -= rd;
+        System.out.printf("%s님이 %d의 피해를 입었습니다.(남은 체력: %d)\n", nickName, rd, this.hp);
+    }
+
+    // 스킬별 데미지가 다르다면 범위를 받아오는 damage 메서드 사용 (오버로딩)
+    public void damage(int min, int max) {
+        int rd = (int)(Math.random() * max + min);
+        this.hp -= rd;
+        System.out.printf("%s님이 %d의 피해를 입었습니다.(남은 체력: %d)\n", nickName, rd, this.hp);
+    }
 }

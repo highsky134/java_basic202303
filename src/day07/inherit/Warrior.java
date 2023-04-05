@@ -16,6 +16,7 @@ public class Warrior extends Player{
     // 파워슬래시
     public void powerSlash() {
         System.out.println("파워슬래시를 사용합니다.");
+
     }
 
     // 오버라이딩
@@ -27,4 +28,9 @@ public class Warrior extends Player{
         super.showStatus();
         System.out.println("# rage: " + rage);
     }
+
+//    public void damage() {
+//        super.damage();
+//        System.out.println("전사의 남은 체력 : " +this.hp);
+//    }
 }
