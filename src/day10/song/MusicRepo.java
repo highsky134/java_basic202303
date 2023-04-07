@@ -11,7 +11,6 @@ public class MusicRepo {
 
     // key: 가수의 이름, value: 가수 객체
     private static Map<String, Singer> singers; // 맵의 key는 중복 x
-    private StringList list; //
 
     static {
         singers = new HashMap<>();
@@ -32,7 +31,7 @@ public class MusicRepo {
         Singer singer = new Singer(name, new HashSet<>());
         singer.getSongList().add(songName);
 
-        // 5. 가수 배열에 가수 객체 추가
+        // 가수 맵에 가수 객체 추가
         singers.put(singer.getName(), singer);
     }
 

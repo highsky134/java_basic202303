@@ -21,7 +21,7 @@ public class MusicView {
         makeLine();
 
     }
-    public void selectMenu() {
+    public void selectMenu() throws NumberFormatException {
         String type = input(">> ");
         switch (type) {
             case "1":
