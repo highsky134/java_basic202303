@@ -2,6 +2,7 @@ package day10.song;
 
 import day04.array.StringList;
 
+import java.io.*;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -16,15 +17,6 @@ public class MusicRepo {
         singers = new HashMap<>();
     }
 
-    public void addSong(String name, String title) {
-        if (!isRegistered(name)) {
-            inputNewSong(name, title);
-        } else {
-            addNewSong(name,title);
-        }
-    }
-
-
     // 첫번째 신규 노래 등록하기
     public void inputNewSong(String name, String songName) {
 
@@ -33,12 +25,18 @@ public class MusicRepo {
 
         // 가수 맵에 가수 객체 추가
         singers.put(singer.getName(), singer);
+
+        // 세이브파일에 저장
+        autoSave();
     }
 
     // 기존 가수 객체에 노래를 추가하는 기능
     public boolean addNewSong(String name, String songName) {
         Singer singer = findSingerByName(name);
-        return singer.getSongList().add(songName);
+        boolean flag = singer.getSongList().add(songName);
+        if (flag) autoSave();
+        return flag;
+
     }
 
     // 가입 되어있는 가수 인지 확인하는 기능
@@ -59,5 +57,37 @@ public class MusicRepo {
     // 등록된 가수의 수 반환
     public int count() {
         return singers.size();
+    }
+
+    public void autoSave() {
+        File f = new File("D:/music");
+        if (!f.exists()) f.mkdir();
+
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("D:/music/m.sav"))) {
+            oos.writeObject(singers);
+
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void loadFile() {
+        // 세이브파일이 존재한다면
+        File f = new File("D:/music/m.sav");
+        if (f.exists()) {
+            // 로드해라
+            try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f))) {
+                singers = (Map<String, Singer>) ois.readObject();
+
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 }

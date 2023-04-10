@@ -1,5 +1,9 @@
 package day05.member;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.LocalDate;
+
 // 역할: 회원 저장소 역할 // -> 추가 기능 해볼? 가입된 회원 10명이면 1번 메뉴 안보이게 등
 public class MemberRepository {
 
@@ -50,8 +54,28 @@ public class MemberRepository {
         for (int i = 0; i < memberList.length; i++) {
             temp[i] = memberList[i];
         }
+
+        // 회원 가입시간 등록
+        newMember.regDate = LocalDate.now();
+
         temp[temp.length - 1] = newMember;
         memberList = temp;
+
+        // save파일 생성
+        try (FileWriter fw = new FileWriter("D:/exercise/member.txt")) {
+            String saveInfo = "";
+            saveInfo += newMember.memberId;
+            saveInfo += "," + newMember.email;
+            saveInfo += "," + newMember.memberName;
+            saveInfo += "," + newMember.password;
+            saveInfo += "," + newMember.gender;
+            saveInfo += "," + newMember.age;
+
+            fw.append(saveInfo + "\n");
+
+        } catch (IOException e) {
+            System.out.println("파일 저장 실패");
+        }
 
         return true;
     }

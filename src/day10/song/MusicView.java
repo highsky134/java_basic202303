@@ -12,7 +12,7 @@ public class MusicView {
     static {
         mr = new MusicRepo();
     }
-    public void mainView() {
+    public static void mainView() {
         System.out.println("\n***** 음악 관리 프로그램 *****\n");
         System.out.printf("# 현재 등록된 가수: %d명\n", mr.count());
         System.out.println("# 1. 노래 등록하기");
@@ -21,7 +21,7 @@ public class MusicView {
         makeLine();
 
     }
-    public void selectMenu() throws NumberFormatException {
+    public static void selectMenu() throws NumberFormatException {
         String type = input(">> ");
         switch (type) {
             case "1":
@@ -40,7 +40,7 @@ public class MusicView {
     }
 
     // 1번 메뉴
-    public void insertProcess() {
+    public static void insertProcess() {
         System.out.println("\n# 노래 등록을 시작합니다.");
         String name = input("- 가수명: ");
         String title = input("- 곡명: ");
@@ -59,7 +59,7 @@ public class MusicView {
         }
     }
     // 2번 메뉴
-    private void searchProcess() {
+    private static void searchProcess() {
         System.out.println("# 검색할 가수명을 입력하세요.");
         String name = input("- 가수명: ");
 
@@ -78,7 +78,8 @@ public class MusicView {
         }
     }
 
-    public void start() {
+    public static void start() {
+
         while (true) {
             mainView();
             selectMenu();

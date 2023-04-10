@@ -2,9 +2,10 @@ package day10.song;
 
 import day04.array.StringList;
 
+import java.io.Serializable;
 import java.util.Set;
 
-public class Singer {
+public class Singer implements Serializable {
 
     private String name;
     private Set<String> songList; // 노래목록은 중복을 허용하지 않으니 Set

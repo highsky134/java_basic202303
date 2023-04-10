@@ -39,7 +39,7 @@ public class ListExample {
         System.out.println(foodList.contains("짜장면"));
         System.out.println(foodList.contains("마라탕"));
 
-        // remove(index), remove(obj)
+        // remove(index), remove(day11.api.obj)
         String removeFoodList = foodList.remove(1);
         foodList.remove("파스타");
         System.out.println(foodList);
